@@ -47,6 +47,7 @@ alias pok='source ~/user_scripts/utils/push_OK.zsh'                       # 快�
 alias c='source ~/user_scripts/utils/vscode_cli.zsh'                      # vscode的指令改寫
 alias ga='source ~/user_scripts/utils/git_add.zsh'                        # 自訂git add無參數模式
 alias gseth='source ~/user_scripts/utils/git_reset_HEAD.zsh'              # 直接重製到前第n個提交
+alias g5c='source ~/user_scripts/utils/keep_new_5commit.zsh'              # 保留前五個提交
 alias molt='source ~/user_scripts/file_manager/molt.zsh'                  # 剝去當前目錄
 alias mc='source ~/user_scripts/file_manager/mkdir_cd.zsh'                # 建立並進入一個目錄
 alias mp='source ~/user_scripts/file_manager/custom_cp.zsh'                # 複製到某一目錄時，預先建立該目錄

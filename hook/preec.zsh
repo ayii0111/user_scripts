@@ -4,7 +4,7 @@
 typeset -g last_command
 typeset -g current_command
 typeset -g last_exit_code
-local lastdir="$HOME/.lastdir"
+typeset -g lastdir="$HOME/.lastdir"
 
 # preexec hook：在每個指令執行之前觸發
 preec_pre() {
@@ -35,9 +35,9 @@ preec_post() {
 
 }
 
-unset lastdir
-
 # 註冊 hooks
 autoload -U add-zsh-hook
 add-zsh-hook preexec preec_pre
 add-zsh-hook precmd preec_post
+
+# 切記本檔中，所有變數綁定到 hook後，不能馬上 unset，否則會讀不到該變數
