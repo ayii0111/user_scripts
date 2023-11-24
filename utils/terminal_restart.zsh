@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# 別名 re
+# 重啟終端軟件的 mac腳本
+
+osascript -e "tell application \"iTerm\" to tell current window to close" -e "tell application \"iTerm\" to create window with default profile"
