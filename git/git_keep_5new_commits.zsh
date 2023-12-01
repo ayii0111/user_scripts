@@ -23,6 +23,8 @@ if (( $total_commits > 5 )) {
   # 第一個 -e編輯動作：將第二行的 pick 改為 squash，就會將第二個提交與第一個提交合併
   # 第二個 -e編輯動作：將第四行的提交訊息，使用空隔來取代
   GIT_EDITOR="sed -i '' -e '2s/pick/squash/' -e '4s/$commit1_message/ /'" git rebase -i --root
+  # 只能用來刪單行的提交訊息，兩行以上的提交訊息，只能刪到第一行
 
 }
 
+unset total_commits commit1_message
