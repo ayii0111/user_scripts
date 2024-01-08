@@ -22,9 +22,12 @@ if (($(($#* - 1)))) {
   first_half["$#para"]=()
 
   # mkdir -p 若目錄已經存在，也不會報錯；且可建立巢狀目錄
+  eval "mkdir -p \$final "
+  for i ($first_half) {
   # cp -r 可複製目錄
-  # \"$first_half\" 可避免目錄名稱有空隔，在帶入 eval後，被看成兩個參數
-  eval "mkdir -p \$final && cp -r \"$first_half\" \$final"
+  # \"$i\" 可避免目錄名稱有空隔，在帶入 eval後，被看成兩個參數
+  eval "cp -r \"$i\" \$final"
+}
 
 } else {
   cp -r $1 .
