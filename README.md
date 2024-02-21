@@ -43,6 +43,7 @@ alias vstylint='source ~/user_scripts/vite/stylelint.zsh'                  # 快
 alias    vboot='source ~/user_scripts/vite/bootstrap.zsh'                  # 快速建立 vite中的 boostrap環境
 alias   vroute='source ~/user_scripts/vite/modifyRoute.zsh'                # 快速修改 vite 中的 route
 alias    vauto='source ~/user_scripts/vite/auto-import.zsh'            # 快速安裝並設定 auto-import
+alias    vcomp='source ~/user_scripts/vite/unplugin-component.zsh'
 alias       v-='source ~/user_scripts/vite/delete-vite-style.zsh'
 alias   vaxios='source ~/user_scripts/vite/axios.zsh'
 alias  vlodash='source ~/user_scripts/vite/lodash.zsh'
