@@ -64,8 +64,14 @@ kill $pid
 # tsconfig.app.json 檔添加項目
 gsed -i '/include/ s|]|, "./auto-imports.d.ts"]|' ./tsconfig.app.json
 
+
 # .eslintrc.cjs 添加項目
-gsed -i "/skip-formatting/ s|$|,\n    './eslintrc-auto-import.json'|" ./.eslintrc.cjs
+local auto_import=cat$( << 'EOF'
+,\
+    './eslintrc-auto-import.json'
+EOF
+)
+gsed -i "/extends: \[/,$ { 0,/'$/ {// s|$|$auto_import|}}" ./.eslintrc.cjs
 
 
-unset AutoImport
+unset AutoImport auto_import

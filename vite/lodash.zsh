@@ -7,10 +7,12 @@ npm i lodash-es
 # 安裝型別
 npm i -D @types/lodash-es eslint-plugin-you-dont-need-lodash-underscore
 
-local dont_need_lodash=',\
-    "plugin:you-dont-need-lodash-underscore/compatible",'
-
-gsed -i "/extends:/,\$ { 0,/'$/ {// s|$|$dont_need_lodash|}}" ./.eslintrc.cjs
+local dont_need_lodash=$(cat <<'EOF'
+,\
+    'plugin:you-dont-need-lodash-underscore/compatible'
+EOF
+)
+gsed -i "/extends:/,$ { 0,/'$/ {// s|$|$dont_need_lodash|}}" ./.eslintrc.cjs
 
 
 # 以下為 auto-import 的配置
@@ -20,7 +22,7 @@ local auto_import=$(cat <<'EOF'
 EOF
 )
 # 在搜尋時，若有[] 需轉譯
-gsed -i "/imports: \[/,\$ { 0,/\}$/ {// s|$|$auto_import|}}" ./vite.config.{t,j}s
+gsed -i "/imports: \[/,$ { 0,/\}$/ {// s|$|$auto_import|}; 0,/'$/ {// s|$|$auto_import|}}" ./vite.config.{t,j}s
 
 
 unset dont_need_lodash auto_import
