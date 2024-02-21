@@ -23,8 +23,12 @@ cp ./node_modules/bootstrap/scss/bootstrap.scss $scss_path
 gsed -i 's| "| "../../node_modules/bootstrap/scss/|' $scss_path
 
 
-# bootstrap 的樣式與js，統一在 main.js 中匯入
-gsed -i "1 s|^|import 'bootstrap'\n|" ./src/main.{t,j}s
+for file (./src/main.{t,j}s) {
+  if [[ -f $file ]] {
+  # bootstrap 的樣式與js，統一在 main.js 中匯入
+  gsed -i "1 s|^|import 'bootstrap'\n|" $file
+  }
+}
 
 
 # 修改 "dev": "vite"

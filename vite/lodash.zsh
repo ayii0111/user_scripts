@@ -21,8 +21,13 @@ local auto_import=$(cat <<'EOF'
         {'lodash-es': ['cloneDeep', 'camelCase', 'isPlainObject', 'merge']}
 EOF
 )
-# 在搜尋時，若有[] 需轉譯
-gsed -i "/imports: \[/,$ { 0,/\}$/ {// s|$|$auto_import|}; 0,/'$/ {// s|$|$auto_import|}}" ./vite.config.{t,j}s
+
+for file (./vite.config.{t,j}s) {
+  if [[ -f $file ]] {
+  # 在搜尋時，若有[] 需轉譯
+  gsed -i "/imports: \[/,$ { 0,/\}$/ {// s|$|$auto_import|}; 0,/'$/ {// s|$|$auto_import|}}" $file
+  }
+}
 
 
 unset dont_need_lodash auto_import
