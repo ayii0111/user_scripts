@@ -4,9 +4,17 @@
 # 可以快速安裝配置 unplugin-auto-import
 npm i -D unplugin-auto-import
 
+
+for file (./vite.config.{t,j}s) {
+  if [[ -f $file ]] {
 # 在 export那一行前面的區塊的空行全部刪除，以及有著 https:的默認註解也刪除
 # 在 export那一行，的前面插入 import...代碼還有兩個空行
-gsed -i "/^export/,\$! {/^$/d; /https:/d}; 0,/export/{// s|^|import AutoImport from 'unplugin-auto-import/vite'\n\n\n|}; " ./vite.config.{t,j}s
+  gsed -i "/^export/,\$! {/^$/d; /https:/d}
+  0,/export/{// s|^|import AutoImport from 'unplugin-auto-import/vite'\n\n\n|}; " $file
+  }
+}
+
+
 
 
 local AutoImport=$(cat <<'EOF'
@@ -48,7 +56,11 @@ EOF
 
 AutoImport=$(echo "$AutoImport" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-gsed -i "/vue(),/a\\$AutoImport" ./vite.config.{t,j}s
+for file (./vite.config.{t,j}s) {
+  if [[ -f $file ]] {
+  gsed -i "/vue(),/a\\$AutoImport" $file
+  }
+}
 
 # 執行 npm run dev 並等待一秒鐘來產生 auto-imports.d.ts檔
 npm run dev &
