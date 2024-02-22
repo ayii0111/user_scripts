@@ -34,9 +34,9 @@ for file (./src/main.{t,j}s) {
 # 修改 "dev": "vite"
 # 改為這樣"dev": "concurrently -n \"vite,bootstrap\" --prefix-colors \"cyan,magenta\" \"vite\" \"sass --watch ./src/assets/main.scss ./src/assets/main.css\"",
 local origStr='"dev": "vite"'
-local modStr='"dev": "concurrently -n \"vite,bootstrap\" --prefix-colors \"cyan,magenta\" \"vite\" \"sass --watch ./src/assets/main.scss ./src/assets/main.css\"",'
+local modStr='"dev": "concurrently -n \"vite,bootstrap\" --prefix-colors \"cyan,magenta\" \"vite\" \"sass --watch ./src/assets/main.scss ./src/assets/main.css\""'
 modStr=${modStr//\\/\\\\}
 gsed -i "s|$origStr|$modStr|" ./package.json
 echo "修改了 package.json 中的 dev 指令內容"
 
-unset scss_path
+unset scss_path origStr modStr
