@@ -22,10 +22,11 @@ local auto_import=$(cat <<'EOF'
 EOF
 )
 
+
 for file (./vite.config.{t,j}s) {
   if [[ -f $file ]] {
   # 在搜尋時，若有[] 需轉譯
-  gsed -i "/imports: \[/,$ { 0,/\}$/ {// s|$|$auto_import|}; 0,/'$/ {// s|$|$auto_import|}}" $file
+  gsed -i "/imports: \[/,$ { 0,/\}$/ {// s|$|$auto_import|}}" $file
   }
 }
 

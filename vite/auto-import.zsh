@@ -37,7 +37,7 @@ AutoImport({
       from: 'vue-router',
       imports: ['RouteLocationRaw'],
       type: true,
-    },
+    }
   ],
 
   defaultExportByFilename: false,
@@ -62,16 +62,6 @@ for file (./vite.config.{t,j}s) {
   }
 }
 
-# 執行 npm run dev 並等待一秒鐘來產生 auto-imports.d.ts檔
-npm run dev &
-sleep 1
-
-# 獲取 npm run dev 的 PID
-pid=$!
-
-# 結束 npm run dev 進程
-kill $pid
-
 
 # tsconfig.app.json 檔添加項目
 gsed -i '/include/ s|]|, "./auto-imports.d.ts"]|' ./tsconfig.app.json
@@ -86,4 +76,12 @@ EOF
 gsed -i "/extends: \[/,$ { 0,/'$/ {// s|$|$auto_import|}}" ./.eslintrc.cjs
 
 
+# 執行 npm run dev 產生 auto-imports.d.ts檔
+npm run dev > /dev/null  &
+
 unset AutoImport auto_import
+
+echo '請直接執行建立的指令 kill -9 %2 來關閉 npm run dev 的背景執行'
+print -z 'kill -9 %2'
+
+
