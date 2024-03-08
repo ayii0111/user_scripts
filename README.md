@@ -40,13 +40,14 @@ alias brewi='source ~/user_scripts/package_manager/brew_pack_install.zsh' # brew
 
 # vite 目錄
 alias vstylint='source ~/user_scripts/vite/stylelint.zsh'                  # 快速建立 stylelint 環境
-alias    vboot='source ~/user_scripts/vite/bootstrap.zsh'                  # 快速建立 vite中的 boostrap環境
+alias    vboot='source ~/user_scripts/vite/bootstrap.zsh'                  # 整合 bootstrap框架並刪除預設樣式
 alias   vroute='source ~/user_scripts/vite/modifyRoute.zsh'                # 快速修改 vite 中的 route
-alias    vauto='source ~/user_scripts/vite/auto-import.zsh'            # 快速安裝並設定 auto-import
-alias    vcomp='source ~/user_scripts/vite/unplugin-component.zsh'
-alias       v-='source ~/user_scripts/vite/delete-vite-style.zsh'
+alias    vauto='source ~/user_scripts/vite/auto-import.zsh'                # 快速安裝並設定 auto-import
+alias    vcomp='source ~/user_scripts/vite/unplugin-component.zsh'         # 子元件可以不用 import
+alias       v-='source ~/user_scripts/vite/delete-vite-style.zsh'          # 刪除預設樣式，不可與 vboot腳本一起執行
 alias   vaxios='source ~/user_scripts/vite/axios.zsh'
 alias  vlodash='source ~/user_scripts/vite/lodash.zsh'
+alias    vconf='source ~/user_scripts/vite/vite-config.zsh'
 
 
 

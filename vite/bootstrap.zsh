@@ -2,6 +2,9 @@
 
 # 別名 vboot
 
+# 先執行清除預設樣式的腳本
+v-
+
 npm i bootstrap @popperjs/core
 
 # 添加 bootstrap中 js部分的型別
