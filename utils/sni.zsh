@@ -6,8 +6,9 @@
 
 
 if (( ! $+1 )) {
-  ls $HOME/Library/Application\ Support/Code/User/vsCode/snippets
+
+  ls "$HOME/Library/Application Support/Code/User/snippets"
   return 0
 }
 
-code $HOME/Library/Application\ Support/Code/User/vsCode/snippets/$1
+code $HOME/Library/Application\ Support/Code/User/snippets/$1
