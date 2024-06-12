@@ -28,5 +28,3 @@ for file (./vite.config.{t,j}s) {
 
 
 unset dont_need_lodash auto_import
-
-  2> /dev/null
