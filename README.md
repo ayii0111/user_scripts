@@ -33,10 +33,10 @@ source ~/UserScripts/hook/brew_packages.zsh
 source ~/UserScripts/hook/conda_env_hook.zsh
 source ~/UserScripts/hook/git_ignore.zsh
 
-# package_manager目錄
-alias concr='source ~/UserScripts/package_manager/conda_create_env.zsh'  # conda 環境建立
-alias conrm='source ~/UserScripts/package_manager/conda_remove_env.zsh'  # conda 環境移除
-alias brewi='source ~/UserScripts/package_manager/brew_pack_install.zsh' # brew 包列安裝
+# pkg_mgr目錄
+alias concr='source ~/UserScripts/pkg_mgr/conda_create_env.zsh'  # conda 環境建立
+alias conrm='source ~/UserScripts/pkg_mgr/conda_remove_env.zsh'  # conda 環境移除
+alias brewi='source ~/UserScripts/pkg_mgr/brew_pack_install.zsh' # brew 包列安裝
 
 # vite 目錄
 alias      vconf='source ~/UserScripts/vite/vite-config.zsh'                # 快速設定 vite 基本設定
