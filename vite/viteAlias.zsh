@@ -47,7 +47,9 @@ if [[ $response =~ ^[Yy]$ || $+response ]] {
 
   # 可避免字串變數中的換行，造成 gsed 無法寫入
   tsConfig=$(echo "$tsConfig" | gsed ':a;N;$!ba;s/\n/\\n/g')
-  gsed -i "/\"paths\":/,$ { 0,/\}$/{// s|^|      $tsConfig\n|}}" tsconfig.app.json
+
+  # 改成在第一行插入設定
+  gsed -i "/\"paths\":/,$ { 0,/\{/ {// s|^|      $tsConfig,\n|}}" tsconfig.app.json
 
 
 
