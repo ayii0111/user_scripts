@@ -19,7 +19,7 @@
 
 // useHvr() 可使用參數
 // useHvr(refElement, 樣式名稱)
-// useHvr(reactivElementsArr, key, 樣式名稱)
+// useHvr(reactivElementsArr, index, 樣式名稱)
 
 // 詳細說明
 // 使用函式多載
@@ -30,23 +30,23 @@ import type { Ref } from 'vue'
 export function useHvr(refElement: Ref<HTMLDivElement | null>, animate: string): Ref<boolean | null>
 export function useHvr(
   reactivElementsArr: Ref<HTMLDivElement[] | HTMLDivElement | null>,
-  key: number,
+  index: number,
   animate: string
 ): Ref<boolean | null>
 
 export function useHvr(
   element: Ref<HTMLDivElement[] | HTMLDivElement | null>,
-  keyOrAnimate: number | string,
+  indexOrAnimate: number | string,
   animate?: string
 ) {
-  // 將第二第三個參數，解析出 _animate 或 _key與_animate
-  let _key: number
+  // 將第二第三個參數，解析出 _animate 或 _index與_animate
+  let _index: number
   let _animate: string
-  if (typeof keyOrAnimate == 'number') {
-    _key = keyOrAnimate
+  if (typeof indexOrAnimate == 'number') {
+    _index = indexOrAnimate
     _animate = animate!
   } else {
-    _animate = keyOrAnimate
+    _animate = indexOrAnimate
   }
 
   let clsInit = `hvr-${_animate}-init`
@@ -54,7 +54,7 @@ export function useHvr(
   let el: HTMLDivElement | null
   onMounted(() => {
     // 將 Dom元素物件解析為 el變數，再來操作
-    Array.isArray(element.value) ? (el = element.value[_key]) : (el = element.value)
+    Array.isArray(element.value) ? (el = element.value[_index]) : (el = element.value)
     el!.classList.add(clsInit)
   })
   const isAnimating = ref<boolean | null>(null)
