@@ -6,7 +6,7 @@
 # tailwind 快速安裝配置
 # 會使用到 concurrently
 
-npm i -D tailwindcss
+npm i -D tailwindcss postcss autoprefixer
 npm i -D concurrently
 
 # ts設定檔初始化

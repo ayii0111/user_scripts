@@ -12,6 +12,6 @@ local auto_import=",
 
 auto_import=$(echo "$auto_import" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-local file=$(checkExist "./vite.config")
+local file=$(getMatchedFile "./vite.config")
 if [[ ! $file ]] return 1
 gsed -i "/imports: \[/,$ { 0,/\}$/ {// s|$|$auto_import|}}" $file

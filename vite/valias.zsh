@@ -8,7 +8,7 @@ if [[ ! $+1 ]] {
   return 1
 }
 
-local file=$(checkExist "./vite.config")
+local file=$(getMatchedFile "./vite.config")
 if [[ ! $file ]] return 1
 
 mkdir -p $1

@@ -2,9 +2,6 @@
 
 # 別名 vboot
 
-# 先執行清除預設樣式的腳本
-v-
-
 npm i bootstrap @popperjs/core
 
 # 添加 bootstrap中 js部分的型別
@@ -46,7 +43,7 @@ gsed -i "/reboot\"/ s|$node_path|.|" $scss_path/main.scss
 
 
 # 匯入 bootstrap 的 js 物件
-local file=$(checkExist "./src/main")
+local file=$(getMatchedFile "./src/main")
 if [[ ! $file ]] return 1
 
 gsed -i "1 s|^|import 'bootstrap'\nimport './assets/scss/main.css'\n|" $file

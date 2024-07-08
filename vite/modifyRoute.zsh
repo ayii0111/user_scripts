@@ -3,7 +3,7 @@
 # 別名 vroute
 
 # 可用來確認指定檔案是存在 index.ts 還是 index.js
-file=$(checkExist "src/router/index")
+file=$(getMatchedFile "src/router/index")
 if [[ ! $file ]] return 1
 
 

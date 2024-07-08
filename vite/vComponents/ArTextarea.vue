@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Auto-resize textarea 元件
 const textarea = ref<HTMLTextAreaElement | null>(null)
 const modelValue = defineModel<string>()
 

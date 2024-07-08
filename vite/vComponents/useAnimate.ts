@@ -1,3 +1,5 @@
+// Animate.css 的組合函式
+
 export function useAnimate(
   toggleState1: string,
   toggleState2: string,

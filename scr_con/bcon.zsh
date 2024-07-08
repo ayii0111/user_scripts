@@ -13,3 +13,5 @@ cp $HOME/.tmux.conf $HOME/UserConfig
 cp $HOME/.config/yazi $HOME/UserConfig/config/yazi
 cp $HOME/.config/starship.toml $HOME/UserConfig/config
 cp $HOME/.config/zellij/config.kdl $HOME/UserConfig/config
+cp $HOME/Library/Containers/org.atelierInmu.inputmethod.vChewing/Data/Library/Application\ Support/vChewing $HOME/UserConfig/config/vChewing
+

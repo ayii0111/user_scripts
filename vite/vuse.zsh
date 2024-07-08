@@ -4,7 +4,7 @@
 # 可快速安裝並配置
 npm i @vueuse/core
 
-local file=$(checkExist "./vite.config")
+local file=$(getMatchedFile "./vite.config")
 if [[ ! $file ]] return 1
 
 # 暫時僅解除 '@vueuse/core', 這行註解

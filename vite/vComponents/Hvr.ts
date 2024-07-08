@@ -1,3 +1,5 @@
+// hover.css 的組合函式
+
 // 使用方式
 // const isAnimating = useHvr()
 // 應在 setup() 週其中使用，不可在 onMounted()中使用，否則本檔的 onMounted 裡面的代碼不會被執行

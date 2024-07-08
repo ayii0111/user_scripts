@@ -10,12 +10,12 @@ npm i vue-clerk
 
 echo 'VITE_CLERK_PUBLISHABLE_KEY=your_publishable_key' > .env
 
-import1="import { clerkPlugin } from 'vue-clerk/plugin'"
-import2="app.use(clerkPlugin, {
+local importSnippet="import { clerkPlugin } from 'vue-clerk/plugin'"
+local injectSnippet="app.use(clerkPlugin, {
   publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 })"
 
-insertMain $import1 $import2
+snippetInsertMainfile $importSnippet $injectSnippet
 
 
 cp $HOME/UserScripts/vite/Clerk&Firebase/LoginBtn.vue src/components
@@ -70,3 +70,5 @@ src/services/firebase.ts 檔
 
 <LoginBtn> 路徑：src/components
 '
+
+unset services servicesTsConfig importSnippet injectSnippet

@@ -5,7 +5,7 @@
 npm i -D unplugin-auto-import
 
 
-local file=$(checkExist "./vite.config")
+local file=$(getMatchedFile "./vite.config")
 if [[ ! $file ]] return 1
 # 在 export那一行前面的區塊的空行全部刪除，以及有著 https:的默認註解也刪除
 # 在 export那一行，的前面插入 import...代碼還有兩個空行
