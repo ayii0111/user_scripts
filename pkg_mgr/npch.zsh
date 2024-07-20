@@ -16,12 +16,12 @@ PACKAGE_INFO=$(npm list $PACKAGE_NAME 2>/dev/null | grep $PACKAGE_NAME)
 
 # 判斷套件是否已安裝
 if [ -z "$PACKAGE_INFO" ]; then
-  echo "  沒有安裝 $PACKAGE_NAME \e[31m✗\e[0m"
+  echo "  沒有安裝 $PACKAGE_NAME $failMark"
 
 else
   # 從輸出中提取版本信息
   VERSION=$(echo $PACKAGE_INFO | grep -o '@[^ ]*' | tail -1)
-  echo "  已安裝 $PACKAGE_NAME$VERSION \e[32m✔\e[0m"
+  echo "  已安裝 $PACKAGE_NAME$VERSION $okMark"
 
 
 fi

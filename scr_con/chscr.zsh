@@ -60,9 +60,9 @@ for i ({1..$#scriptFilePaths}){
 }
 
 if (( $#noAliasPath == 0 )) {
-  echo "  所有腳本都已配置 alias \e[32m✔\e[0m"
+  echo "  所有腳本都已配置 alias $okMark"
 } else {
-  echo "  未配置 alias 的腳本有：${#noAliasPath} 個  \e[31m✗\e[0m"
+  echo "  未配置 alias 的腳本有：${#noAliasPath} 個  $failMark"
   echo "腳本路徑如下："
   print -l $noAliasPath
   echo "\nP.S  請於 ~/UserConfig/zshrc_dir/alias_script 中配置腳本路徑的 alias"

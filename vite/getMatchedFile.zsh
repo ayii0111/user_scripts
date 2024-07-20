@@ -9,7 +9,7 @@ filePath=$1
 # 先排除匹配2個以上檔案的錯誤
 filePathArr=($(echo $filePath.*))
 if (( $#filePathArr > 1 )) {
-  echo "  \e[31m✗\e[0m 匹配到 2 個以上的檔案:" >&2
+  echo "  $failMark 匹配到 2 個以上的檔案:" >&2
   for elem ($filePathArr) {
     echo "    $elem" >&2
   }
@@ -22,7 +22,7 @@ if (( $#filePathArr > 1 )) {
 filePath=$filePathArr
 # 若沒有匹配到存在的檔案，就不會路徑展開，而僅會有字串串連的效果，此時結尾字串為 *
 if [[ $filePath == *'*' ]] {
-  echo "  \e[31m✗\e[0m 找不到 $filePath 匹配的檔案\n" >&2
+  echo "  $failMark 找不到 $filePath 匹配的檔案\n" >&2
   unset filePath
   return 1
 }
