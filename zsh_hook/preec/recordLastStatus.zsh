@@ -5,6 +5,7 @@
 recordLastStatusPost() {
   typeset -g lastStatus
   lastStatus=$?
+  echo "✞✞✞✞"
 }
 
 autoload -U add-zsh-hook
