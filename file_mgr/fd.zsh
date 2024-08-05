@@ -19,36 +19,37 @@
 # 第一參數
 # 若為隱藏檔名，也搜不到東西（此時仍需添加 -H）
 
-
-local args=$*
+args=$*
 hasNodeMod() {
-  if [[ $args == *node_modules* || $(pwd) == *node_modules* ]] then
+  if [[ $args == *node_modules* || $(pwd) == *node_modules* ]] {
     return 0
-  else
+  } else {
     return 1
-  fi
+  }
 }
 
 hasHidden() {
-  # 可符合條減的為隱藏目錄路徑 */.*
-  # 隱藏檔案 .開頭的檔案
-  # 但若是僅 ./ 開頭的相對路徑，則不符合條件
-  if [[ $args == */.* || $args =~ ^\.[^/].* || $(pwd) == */.* ]] then
+  if [[ $args == .[^/]* ]] {
     return 0
-  else
+  } else {
     return 1
-  fi
+  }
 }
 
 # 不知為何，此種格式無法使用 echo 除錯，因為都會一律執行第一個 echo 其餘不執行
 if hasNodeMod && hasHidden; then
+  echo "-IH"
   /opt/homebrew/bin/fd -IH $*
 elif hasNodeMod; then
-  /opt/homebrew/bin/fd -I $*
+  echo "-I"
+  eval "/opt/homebrew/bin/fd -I $*"
 elif hasHidden; then
+  echo "-H"
   /opt/homebrew/bin/fd -H $*
 else
+  echo "*"
   /opt/homebrew/bin/fd $*
 fi
 
+unset args
 unset -f hasNodeMod hasHidden

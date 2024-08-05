@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 # 別名 bcon
-# 全稱 config_backup config
+# 全稱 backup config
 # 設定檔的備份，包含 vscode、snippets、.zshrc骨幹
 
 # 透過自製的 mp指令，將設定檔備份管理

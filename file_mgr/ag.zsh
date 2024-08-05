@@ -11,7 +11,7 @@
 
 
 local opts=()
-local args=("$*")
+local args=($*)
 local index=1
 
 while (( $index <= $#* )) {
