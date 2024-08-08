@@ -27,6 +27,7 @@ while (( $index <= $#* )) {
         -H)opts+=("--hidden");;
         -I)opts+=("-U");;
         -IH)opts+=("-u");;
+        -HI)opts+=("-u");;
         -*)opts+=("${args[index]}");;
         *)opts+=(\""${args[index]}"\");;
     esac
