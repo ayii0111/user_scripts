@@ -3,14 +3,12 @@
 # 別名 fd: 易用版
 # 添加了 -I 或 -H 的自動判斷功能
 
-
 # 主要功能在搜尋 node_modules 目錄中的檔案或目錄時，會自動使用 -I 無須手動添加
 # 在搜尋一個引目錄時，會自動添加 -H
 
 # 兩種方式判別：
 # 在搜尋路徑上有 node_modules 字串/ .目錄，時條件符合自動套用
 # 在當前目錄有 node_modules 字串/ .目錄的字串時，條件符合自動套用
-
 
 # 原始 fd 的特性
 # 第二參數
@@ -21,34 +19,34 @@
 
 args=$*
 hasNodeMod() {
-  if [[ $args == *node_modules* || $(pwd) == *node_modules* ]] {
+  if [[ $args == *node_modules* || $(pwd) == *node_modules* ]]; then
     return 0
-  } else {
+  else
     return 1
-  }
+  fi
 }
 
 hasHidden() {
-  if [[ $args == .[^/]* ]] {
+  if [[ $args == .[^/]* ]]; then
     return 0
-  } else {
+  else
     return 1
-  }
+  fi
 }
 
 # 不知為何，此種格式無法使用 echo 除錯，因為都會一律執行第一個 echo 其餘不執行
 if hasNodeMod && hasHidden; then
-  echo "-IH"
-  /opt/homebrew/bin/fd -IH $*
+  echo "自動 -IH 模式"
+  /opt/homebrew/bin/fd -E 'System' -E 'private' -IH $*
 elif hasNodeMod; then
-  echo "-I"
-  eval "/opt/homebrew/bin/fd -I $*"
+  echo "自動 -I 模式"
+  /opt/homebrew/bin/fd -E 'System' -E 'private' -I $*
 elif hasHidden; then
-  echo "-H"
-  /opt/homebrew/bin/fd -H $*
+  echo "自動 -H 模式"
+  /opt/homebrew/bin/fd -E 'System' -E 'private' -H $*
 else
-  echo "*"
-  /opt/homebrew/bin/fd $*
+  # 一般模式不需要任何顯示
+  /opt/homebrew/bin/fd -E 'System' -E 'private' $*
 fi
 
 unset args

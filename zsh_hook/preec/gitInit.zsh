@@ -3,7 +3,7 @@
 
 # 本函式的依賴：currentCmd
 gitInit() {
-  if [[ $currentCmd == git\ init ]] {
+  if [[ $currentCmd == *git\ init* ]] {
     echo "" > README.md
 
     filecontent="$(<.gitignore)"
