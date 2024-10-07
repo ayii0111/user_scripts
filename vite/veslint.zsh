@@ -1,5 +1,6 @@
 # 安裝
-npm i -D eslint @antfu/eslint-config eslint-plugin-format
+npm i -D eslint eslint-plugin-format
+npm i -D @antfu/eslint-config@2.27.3
 
 # 若安裝報錯要退出
 [[ $? != 0 ]] && return 1
