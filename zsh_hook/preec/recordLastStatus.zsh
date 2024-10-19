@@ -5,7 +5,7 @@
 recordLastStatusPost() {
   typeset -g lastStatus
   lastStatus=$?
-  echo "✞✞✞✞ $(date '+%H:%M:%S %Y-%m-%d')\n"
+  # echo "✞✞✞✞ $(date '+%H:%M:%S %Y-%m-%d')\n"
 
 }
 

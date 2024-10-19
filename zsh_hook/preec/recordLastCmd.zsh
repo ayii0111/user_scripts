@@ -12,9 +12,10 @@ recordLastCmdPre() {
 
 recordLastCmdPost() {
 
-  if [[ $currentCmd ]] {
+  if [[ $currentCmd ]]; then
     lastExistCmd=$lastCmd
-  }
+  fi
+
   lastCmd=$currentCmd
   # currentCmd=""
 }

@@ -1,10 +1,10 @@
 #!/bin/zsh
 
 # 指定忽略的多個目錄（用空格分隔）
-ignoreDirs=(~/UserScripts/zsh_hook)
+ignoreDirs=(~/UserScripts/{zsh_hook,zle_tools})
 
 # 指定忽略的多個檔案（並非輸入路徑）
-ignoreFiles=(initAlias.zsh env.zsh)
+ignoreFiles=(initAlias.zsh env.zsh re.zsh)
 
 # 動態載入目錄中的所有腳本
 for currFilePath in ~/UserScripts/**/*.zsh; do
